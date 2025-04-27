@@ -89,10 +89,12 @@ class RegistrationPage:
         return self
 
     def upload_picture(self):
-        # self.picture.should(be.clickable).type(os.getcwd() + "/picture.png")
-        current_dir = Path(__file__).parent.parent.parent
-        current_dir = Path(__file__).joinpath(current_dir, '/tests')
-        picture_path = str(current_dir / "picture.png")
+        # self.picture.should(be.clickable).type(os.getcwd() + "resources/picture.png")
+        # current_dir = Path(__file__).parent.parent.parent
+        # current_dir = Path(__file__).joinpath(current_dir, '/tests')
+        # picture_path = str(current_dir / "picture.png")
+        #
+        picture_path = "resources/picture.png"
 
         # Проверяем что файл существует
         assert os.path.exists(picture_path), f"File not found: {picture_path}"
