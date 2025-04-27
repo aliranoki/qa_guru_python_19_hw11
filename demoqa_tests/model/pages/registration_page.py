@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 from selene import have, command, be
 from selene.support.shared import browser
@@ -89,8 +90,12 @@ class RegistrationPage:
 
     def upload_picture(self):
         # self.picture.should(be.clickable).type(os.getcwd() + "/picture.png")
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        picture_path = os.path.join(current_dir, 'picture.png')
+        current_dir = Path(__file__).parent
+        picture_path = str(current_dir / "picture.png")
+
+        # Проверяем что файл существует
+        assert os.path.exists(picture_path), f"File not found: {picture_path}"
+
         self.picture.should(be.clickable).type(picture_path)
         return self
 
