@@ -90,7 +90,7 @@ class RegistrationPage:
 
     def upload_picture(self):
         # self.picture.should(be.clickable).type(os.getcwd() + "/picture.png")
-        current_dir = Path(__file__).parent
+        current_dir = Path(__file__).parent.parent.parent
         picture_path = str(current_dir / "picture.png")
 
         # Проверяем что файл существует
