@@ -88,7 +88,10 @@ class RegistrationPage:
         return self
 
     def upload_picture(self):
-        self.picture.should(be.clickable).type(os.getcwd() + "/picture.png")
+        # self.picture.should(be.clickable).type(os.getcwd() + "/picture.png")
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        picture_path = os.path.join(current_dir, 'picture.png')
+        self.picture.should(be.clickable).type(picture_path)
         return self
 
     def fill_address(self, value):
