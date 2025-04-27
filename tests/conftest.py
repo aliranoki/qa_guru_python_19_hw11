@@ -1,11 +1,11 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selene import Browser, Config, browser
+from selene import browser
 
 
 @pytest.fixture(scope="function")
-def setup_browser(request):
+def setup_browser():
     options = Options()
     options.set_capability("browserName", "chrome")
     options.set_capability("browserVersion", "128.0")
@@ -19,8 +19,10 @@ def setup_browser(request):
         options=options
     )
 
-    # browser = Browser(Config(driver))
     browser.config.driver = driver
+    browser.config.base_url = "https://demoqa.com"
+    browser.config.timeout = 10.0
+
     yield browser
 
     browser.quit()
