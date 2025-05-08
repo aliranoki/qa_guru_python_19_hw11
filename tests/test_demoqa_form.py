@@ -21,6 +21,7 @@ def test_form(setup_browser):
     registration_page.submit_form()
 
 
+
     # Проверка результатов
     # Проверка заголовка модального окна
     registration_page.should_popup_title_be('Thanks for submitting the form')
